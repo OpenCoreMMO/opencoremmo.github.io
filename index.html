@@ -304,67 +304,80 @@
             line-height: 1.6;
         }
         
-        /* Client Support Section */
-        .client-support {
+        /* Technology Section */
+        .technology {
             padding: 100px 0;
             background-color: var(--darker);
         }
         
-        .client-support-content {
-            max-width: 800px;
-            margin: 0 auto;
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+        }
+        
+        .tech-card {
             background-color: var(--light-gray);
             border-radius: 12px;
-            padding: 48px;
+            padding: 32px;
             text-align: center;
+            transition: all 0.3s ease;
             border: 1px solid rgba(100, 116, 139, 0.1);
+            position: relative;
+            overflow: hidden;
         }
         
-        .client-support-content h2 {
-            font-size: 2.5rem;
-            margin-bottom: 24px;
-            color: var(--white);
-            font-weight: 800;
-            letter-spacing: -0.02em;
+        .tech-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
         }
         
-        .client-support-content p {
-            font-size: 1.25rem;
-            color: var(--gray);
-            margin-bottom: 32px;
-            line-height: 1.6;
+        .tech-card:hover::before {
+            transform: translateX(0);
         }
         
-        .client-version {
-            display: inline-flex;
-            align-items: center;
-            background-color: var(--primary);
-            color: var(--white);
-            padding: 16px 32px;
-            border-radius: 50px;
+        .tech-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .tech-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+        
+        .tech-card h3 {
             font-size: 1.5rem;
+            margin-bottom: 12px;
+            color: var(--white);
             font-weight: 700;
-            margin: 20px 0;
-            box-shadow: 0 4px 14px 0 rgba(37, 99, 235, 0.25);
         }
         
-        .client-version i {
-            margin-right: 12px;
-            font-size: 1.75rem;
-        }
-        
-        .client-note {
-            background-color: var(--dark);
-            border-radius: 8px;
-            padding: 20px;
-            margin-top: 32px;
-            border-left: 4px solid var(--accent);
-        }
-        
-        .client-note p {
-            font-size: 1rem;
+        .tech-card p {
             color: var(--gray);
-            margin: 0;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+        
+        .tech-badge {
+            display: inline-block;
+            background-color: var(--darker);
+            color: var(--secondary);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-top: 12px;
+            border: 1px solid rgba(100, 116, 139, 0.2);
         }
         
         /* Installation Section */
@@ -661,6 +674,10 @@
                 grid-template-columns: 1fr;
             }
             
+            .tech-grid {
+                grid-template-columns: 1fr;
+            }
+            
             .connection-info {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -688,7 +705,7 @@
                 </div>
                 <ul class="nav-links">
                     <li><a href="#features">Features</a></li>
-                    <li><a href="#client-support">Client Support</a></li>
+                    <li><a href="#technology">Tech Stack</a></li>
                     <li><a href="#installation">Installation</a></li>
                     <li><a href="#community">Community</a></li>
                     <li><a href="https://github.com/OpenCoreMMO/OpenCoreMMO" target="_blank">GitHub</a></li>
@@ -724,13 +741,6 @@
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-server"></i>
-                    </div>
-                    <h3>Scalable Architecture</h3>
-                    <p>Built for performance, supporting thousands of concurrent players with efficient resource management.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
                         <i class="fas fa-code-branch"></i>
                     </div>
                     <h3>Modular Design</h3>
@@ -764,23 +774,80 @@
                     <h3>Well Documented</h3>
                     <p>Comprehensive documentation and API references to help developers get started quickly.</p>
                 </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-scroll"></i>
+                    </div>
+                    <h3>Scripting</h3>
+                    <p>Powerful LuaJIT integration for creating custom game logic, quests, and gameplay mechanics with ease.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Client Support Section -->
-    <section class="client-support" id="client-support">
+    <!-- Technology Section -->
+    <section class="technology" id="technology">
         <div class="container">
-            <div class="client-support-content">
-                <h2>Client Support</h2>
-                <p>OpenCoreMMO currently supports the following client version:</p>
-                <div class="client-version">
-                    <i class="fas fa-gamepad"></i>
-                    Client 8.60
+            <div class="section-title">
+                <h2>Technology Stack</h2>
+                <p>Built with modern, reliable technologies</p>
+            </div>
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <div class="tech-icon">
+                        <i class="fab fa-microsoft"></i>
+                    </div>
+                    <h3>C#</h3>
+                    <p>Modern, type-safe programming language with excellent performance and developer productivity.</p>
+                    <span class="tech-badge">Language</span>
                 </div>
-                <p>We are focusing on providing a stable and complete implementation for this version before expanding support to other client versions.</p>
-                <div class="client-note">
-                    <p><i class="fas fa-info-circle"></i> Note: Additional client versions may be supported in future releases based on community demand and contributions.</p>
+                <div class="tech-card">
+                    <div class="tech-icon">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <h3>.NET 9</h3>
+                    <p>Latest version of Microsoft's cross-platform framework with improved performance and new features.</p>
+                    <span class="tech-badge">Framework</span>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Database Support</h3>
+                    <p>Flexible database options including InMemory for development, PostgreSQL for production, and SQLite for lightweight deployments.</p>
+                    <span class="tech-badge">Multi-DB</span>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon">
+                        <i class="fas fa-terminal"></i>
+                    </div>
+                    <h3>Console Debug Logging</h3>
+                    <p>Comprehensive logging system with detailed debug information for troubleshooting and monitoring.</p>
+                    <span class="tech-badge">Debugging</span>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon">
+                        <i class="fas fa-vial"></i>
+                    </div>
+                    <h3>XUnit Testing</h3>
+                    <p>Robust unit testing framework ensuring code quality and reliability through comprehensive test coverage.</p>
+                    <span class="tech-badge">Testing</span>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon">
+                        <i class="fab fa-docker"></i>
+                    </div>
+                    <h3>Docker</h3>
+                    <p>Containerization support for easy deployment, scaling, and consistent environments across development and production.</p>
+                    <span class="tech-badge">Container</span>
+                </div>
+                <div class="tech-card">
+                    <div class="tech-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>LuaJIT</h3>
+                    <p>High-performance Just-In-Time compiler for Lua, enabling fast and efficient scripting for game logic and custom content.</p>
+                    <span class="tech-badge">Scripting</span>
                 </div>
             </div>
         </div>
