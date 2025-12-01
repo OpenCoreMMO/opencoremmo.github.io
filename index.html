@@ -115,6 +115,39 @@
         .nav-links a:hover::after {
             width: 100%;
         }
+
+        .nav-links a.nav-github {
+            font-size: 2.2rem !important;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            width: 40px;
+            height: 40px;
+        }
+
+        .nav-github:hover {
+            color: #ffffff;
+            transform: scale(1.1);
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+        }
+
+        .nav-links a.nav-github::after {
+            display: none;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .nav-links li {
+            display: flex;
+            align-items: center;
+        }
         
         .hamburger {
             display: none;
@@ -408,10 +441,143 @@
             border: 1px solid rgba(100, 116, 139, 0.2);
         }
         
+        /* Downloads Section */
+        .downloads {
+            padding: 100px 0;
+            background-color: var(--dark);
+        }
+
+        .downloads-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+            margin-bottom: 48px;
+        }
+
+        .download-card {
+            background-color: var(--light-gray);
+            border-radius: 12px;
+            padding: 32px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(100, 116, 139, 0.1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .download-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .download-card:hover::before {
+            transform: translateX(0);
+        }
+
+        .download-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .download-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .download-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+            color: var(--white);
+            font-weight: 700;
+        }
+
+        .download-card p {
+            color: var(--gray);
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+
+        .download-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .download-badge {
+            display: inline-block;
+            background-color: var(--darker);
+            color: var(--secondary);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border: 1px solid rgba(100, 116, 139, 0.2);
+        }
+
+        .download-badge.pre-release {
+            background-color: rgba(251, 146, 60, 0.1);
+            color: #fb923c;
+            border-color: rgba(251, 146, 60, 0.3);
+        }
+
+        .download-badge.source {
+            background-color: rgba(34, 197, 94, 0.1);
+            color: #22c55e;
+            border-color: rgba(34, 197, 94, 0.3);
+        }
+
+        .download-arrow {
+            font-size: 1.2rem;
+            color: var(--gray);
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .download-card:hover .download-arrow {
+            color: var(--primary);
+            transform: translateX(4px);
+        }
+
+        .download-note {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 24px;
+            background-color: var(--light-gray);
+            border-radius: 12px;
+            border: 1px solid rgba(100, 116, 139, 0.1);
+        }
+
+        .download-note p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .download-note i {
+            color: var(--secondary);
+            font-size: 1.1rem;
+        }
+
         /* Installation Section */
         .installation {
             padding: 100px 0;
-            background-color: var(--dark);
+            background-color: var(--darker);
         }
         
         .install-steps {
@@ -603,6 +769,14 @@
             margin-bottom: 16px;
             display: inline-block;
         }
+
+        .reddit-icon {
+            color: #ff4500;
+        }
+
+        .github-icon {
+            color: var(--white);
+        }
         
         .community-card h3 {
             margin-bottom: 12px;
@@ -757,8 +931,10 @@
                     <li><a href="#features">Features</a></li>
                     <li><a href="#technology">Tech Stack</a></li>
                     <li><a href="#installation">Installation</a></li>
+                    <li><a href="#downloads">Downloads</a></li>
                     <li><a href="#community">Community</a></li>
-                    <li><a href="https://github.com/OpenCoreMMO/OpenCoreMMO" target="_blank">GitHub</a></li>
+                    <li><a href="https://opencoremmo.gitbook.io/ocm/" target="_blank">Documentation</a></li>
+                    <li><a href="https://github.com/OpenCoreMMO/OpenCoreMMO" target="_blank" class="nav-github"><i class="fab fa-github"></i></a></li>
                 </ul>
                 <div class="hamburger">
                     <span></span>
@@ -980,6 +1156,54 @@
         </div>
     </section>
 
+    <!-- Downloads Section -->
+    <section class="downloads" id="downloads">
+        <div class="container">
+            <div class="section-title">
+                <h2>Downloads</h2>
+                <p>Get the latest stable releases and pre-built binaries</p>
+            </div>
+            <div class="downloads-grid">
+                <a href="https://github.com/OpenCoreMMO/OpenCoreMMO/releases" class="download-card" target="_blank">
+                    <div class="download-icon">
+                        <i class="fas fa-download"></i>
+                    </div>
+                    <h3>Latest Release</h3>
+                    <p>Download the most recent stable version with all bug fixes and features.</p>
+                    <div class="download-info">
+                        <span class="download-badge">Stable</span>
+                        <span class="download-arrow"><i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+                <a href="https://github.com/OpenCoreMMO/OpenCoreMMO/releases" class="download-card" target="_blank">
+                    <div class="download-icon">
+                        <i class="fas fa-code-branch"></i>
+                    </div>
+                    <h3>Pre-release Versions</h3>
+                    <p>Try upcoming features and improvements before they're officially released.</p>
+                    <div class="download-info">
+                        <span class="download-badge pre-release">Pre-release</span>
+                        <span class="download-arrow"><i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+                <a href="https://codeload.github.com/OpenCoreMMO/OpenCoreMMO/zip/refs/heads/develop" class="download-card" target="_blank">
+                    <div class="download-icon">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <h3>Source Code</h3>
+                    <p>Download the complete source code as a ZIP archive for offline development.</p>
+                    <div class="download-info">
+                        <span class="download-badge source">Source</span>
+                        <span class="download-arrow"><i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+            </div>
+            <div class="download-note">
+                <p><i class="fas fa-info-circle"></i> All downloads redirect to our GitHub Releases page where you can find detailed release notes and platform-specific packages.</p>
+            </div>
+        </div>
+    </section>
+
     <!-- Community Section -->
     <section class="community" id="community">
         <div class="container">
@@ -996,14 +1220,14 @@
                     <p>Real-time chat with the community and developers</p>
                 </a>
                 <a href="https://github.com/OpenCoreMMO/OpenCoreMMO/discussions" class="community-card" target="_blank">
-                    <div class="community-icon">
+                    <div class="community-icon github-icon">
                         <i class="fab fa-github"></i>
                     </div>
                     <h3>GitHub Discussions</h3>
                     <p>Feature requests, bug reports, and development discussions</p>
                 </a>
                 <a href="https://www.reddit.com/r/opencoremmo" class="community-card" target="_blank">
-                    <div class="community-icon">
+                    <div class="community-icon reddit-icon">
                         <i class="fab fa-reddit"></i>
                     </div>
                     <h3>Reddit</h3>
@@ -1023,7 +1247,7 @@
                 </div>
                 <div class="footer-links">
                     <a href="https://github.com/OpenCoreMMO/OpenCoreMMO" target="_blank">GitHub</a>
-                    <!--a href="#" target="_blank">Documentation</a-->
+                    <a href="https://opencoremmo.gitbook.io/ocm/" target="_blank">Documentation</a>
                     <!--a href="#" target="_blank">Wiki</a-->
                     <a href="https://github.com/OpenCoreMMO/OpenCoreMMO?tab=GPL-3.0-1-ov-file#readme" target="_blank">License</a>
                     <!--a href="#" target="_blank">Privacy Policy</a-->
